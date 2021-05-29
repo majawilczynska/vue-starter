@@ -3,7 +3,7 @@
 	  <h1>Witaj w systemie do zapisów na zajęcia</h1>
 	  <div v-if="authenticated">
 		  <h2>Witaj {{email}} !</h2>
-	    <a href="" @click="logOut()">Wyloguj</a>
+	    <a @click="logOut()">Wyloguj</a>
 	  </div>
 	  <div v-else>
 		Zaloguj się e-mailem
