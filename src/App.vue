@@ -5,18 +5,18 @@
 		  <h2>Witaj {{email}} !</h2>
 	    <a @click="logOut()">Wyloguj</a>
 	  </div>
-	  <div v-else>
-		Zaloguj się e-mailem
-		  <input type="text" v-model="email">
-		  <button @click="logIn()">Wchodzę</button>
+	  <div v-else
+		  <login-form @login="logIn($event)"></login-form>
 	  </div>
   </div>
 </template>
 
 <script>
 import "milligram";
+import LoginForm from "./LoginForm";
 
 export default {
+	components: {LoginForm},
 	data() {
 	  return {
 		authenticated: false,
@@ -24,8 +24,9 @@ export default {
 	  };
 	},
 	methods: {
-		logIn() {
+		logIn(username) {
 			this.authenticated = true;
+			this.email = username;
 		},
 		logOut() {
 			this.authenticated = false;
